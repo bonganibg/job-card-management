@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DomingoRoofWork.Models.EmployeeModel>
+
+<div class="card">
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Employees</h3>
+    <div class="card-body">
+        <div id="table" class="table-editable">
+            <span class="table-add float-right mb-3 mr-2">
+                @Html.ActionLink("Add New Employee", "AddEmployee")
+            </span>
+            <table class="table table-bordered table-responsive-md table-striped text-center">
+                <thead>
+                    <tr>
+                        <th class="text-center">@Html.DisplayNameFor(model => model.EmpNo)</th>
+                        <th class="text-center">@Html.DisplayNameFor(model => model.EmpFirstName)</th>
+                        <th class="text-center">@Html.DisplayNameFor(model => model.EmpSurname)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="pt-3-half" contenteditable="true">@Html.DisplayFor(modelItem => item.EmpNo)</td>
+                            <td class="pt-3-half" contenteditable="true">@Html.DisplayFor(modelItem => item.EmpFirstName)</td>
+                            <td class="pt-3-half" contenteditable="true">@Html.DisplayFor(modelItem => item.EmpSurname)</td>
+                            <td class="pt-3-half">
+                                <span class="table-up">
+                                    @Html.ActionLink("Edit", "EditEmployee", new { id = item.EmpNo })
+                                </span>
+                            </td>
+                            <td>
+                                <span class="table-down">
+                                    @Html.ActionLink("Assign Job Card", "AddEmployeeToJobCard", new { id = item.EmpNo })
+                                </span>
+                            </td>
+                            <td>
+                                <span class="table-remove">
+                                    @Html.ActionLink("Delete", "DeleteEmployee", new { id = item.EmpNo }, new { onclick = "return confirm ('Are you sure you want to delete');" })
+                                </span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

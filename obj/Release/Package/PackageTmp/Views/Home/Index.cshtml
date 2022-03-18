@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Domingo Roof Works";
+}
+
+<table style="margin-left: auto; margin-right: auto">
+    <tbody>
+        <tr>
+            <td>
+                <div style="width: 18rem">
+                    <div>
+                        <h3>Job Card</h3>
+                        <p style="padding-left: 20px; padding-right:20px">View all of the past job cards and create new job cards</p>
+                        <ul>
+                            <li>@Html.ActionLink("Create New Job Card", "CreateJobCard", "JobCard")</li>
+                            <li>@Html.ActionLink("View Job Cards", "GetAllJobCards", "JobCard")</li>
+                        </ul>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div style="width: 18rem">
+                    <div>
+                        <h3>Employees</h3>
+                        <p style="padding-left: 20px; padding-right:20px"> Get all of the current employees, remove employees and add details for new employees</p>
+                        <ul>
+                            <li>@Html.ActionLink("View Employees", "GetAllEmployees", "Employee")</li>
+                            <li>@Html.ActionLink("Add New Employee", "AddEmployee", "Employee")</li>
+                        </ul>
+                    </div>
+                </div>
+            </td>
+
+        </tr>
+
+        <tr>
+            <td>
+                <div style="width: 18rem">
+                    <div>
+                        <h3>Invoices</h3>
+                        <p style="padding-left: 20px; padding-right:20px">View all of the saved invoices and view details of individual invoices</p>
+                        @Html.ActionLink("View All Invoices", "GetAllInvoices", "Invoice")
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div style="width: 18rem">
+                    <div>
+                        <h3>Job Type</h3>
+                        <p style="padding-left: 20px; padding-right:20px">View the available jobs and the costs, and update job costs </p>
+                        @Html.ActionLink("View Job Types", "ViewJobTypes", "JobType")
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+

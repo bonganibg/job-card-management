@@ -1,0 +1,41 @@
+﻿@model IEnumerable<DomingoRoofWork.Models.JobTypeModel>
+
+@{
+    ViewBag.Title = "View Job Types";
+}
+
+<h2>Job Types</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JobTypeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DailyRate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobTypeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DailyRate)
+            </td>
+            <td>
+                @Html.ActionLink("Update", "UpdateDailyRate", new { id = item.JobTypeID })
+            </td>
+        </tr>
+    }
+
+</table>

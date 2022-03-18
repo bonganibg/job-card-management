@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DomingoRoofWork.Models.InvoiceModel>
+
+@{
+    ViewBag.Title = "Get All Invoices";
+}
+
+<div class="card">
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4"> Saved Invoices </h3>
+    <div class="card-body">
+        <div id="table" class="table-editable">
+            <table class="table table-bordered table-responsive-md table-striped text-center">
+                <thead>
+                    <tr>
+                        <th class="text-center"> @Html.DisplayNameFor(model => model.JobCardNumber) </th>
+                        <th class="text-center"> Customer Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="pt-3-half" contenteditable="true"> @Html.DisplayFor(modelItem => item.JobCardNumber)</td>
+                            <td class="pt-3-half" contenteditable="true">
+                                @Html.DisplayFor(modelItem => item.CustomerFirstName)
+                                @Html.DisplayFor(modelItem => item.CustomerSurname)
+                            </td>
+                            <td>
+                                <span class="table-remove">
+                                    @Html.ActionLink("View Full Invoice", "InvoiceDetails", new { id = item.JobCardNumber })
+                                </span>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

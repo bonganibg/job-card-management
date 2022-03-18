@@ -1,0 +1,48 @@
+﻿ @model IEnumerable<DomingoRoofWork.Models.JobCardModel>
+
+@{
+    ViewBag.Title = "Past Job Cards";
+}
+
+<div class="card">
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Past Job Cards</h3>
+    <div class="card-body">
+        <div id="table" class="table-editable">
+            <span class="table-add float-right mb-3 mr-2">
+                @Html.ActionLink("Add New Job Card", "CreateJobCard")
+            </span>
+            <table class="table table-bordered table-responsive-md table-striped text-center">
+                <thead>
+                    <tr>
+                        <th class="text-center"> Job Card No.</th>
+                        <th class="text-center">Customer Name</th>
+                        <th class="text-center">Address</th>
+                        <th class="text-center">Job Type</th>
+                        <th class="text-center">No. of days</th>
+                        <th class="text-center">Materials/Equipment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td class="pt-3-half" contenteditable="true">@Html.DisplayFor(modelItem => item.JobCardNo) </td>
+                        <td class="pt-3-half" contenteditable="true">
+                            @Html.DisplayFor(modelItem => item.CustomerName)
+                            @Html.DisplayFor(modelItem => item.CustomerSurname)
+                        </td>
+                        <td class="pt-3-half" contenteditable="true">
+                            @Html.DisplayFor(modelItem => item.PhysicalAddress)
+                            @Html.DisplayFor(modelItem => item.Province),
+                            @Html.DisplayFor(modelItem => item.Code)
+                        </td>
+                        <td class="pt-3-half" contenteditable="true">@Html.DisplayFor(modelItem => item.JobTypeName) </td>
+                        <td class="pt-3-half" contenteditable="true"> @Html.DisplayFor(modelItem => item.NumOfDays)</td>
+                        <td class="pt-3-half" contenteditable="true"> @Html.DisplayFor(modelItem => item.MaterialsUsed)</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
